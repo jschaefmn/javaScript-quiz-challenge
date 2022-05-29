@@ -73,6 +73,7 @@ function myTimer() {
 // display next question
 var nextQuestion = function () {
   if (questionsLeft.length === 0 || questionCount >= maxQuestions) {
+    localStorage.setItem("lastScore", score);
     return window.location.assign('./highscores.html');
   }
   questionCount++;
