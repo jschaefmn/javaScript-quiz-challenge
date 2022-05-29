@@ -88,6 +88,7 @@ input {
   font-size: 1.3rem;
   border: none;
   box-shadow: 0 0.4rem 1.7rem 0 rgba(0, 0, 0, 0.3);
+  color: #000;
 }
 
 /* add styling to button hover */

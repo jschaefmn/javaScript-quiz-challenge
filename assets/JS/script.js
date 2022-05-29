@@ -5,6 +5,8 @@ var currentQuestion = {};
 var score = 0;
 var questionCount = 0;
 var questionsLeft = [];
+var sec = 60;
+var time = setInterval(myTimer, 1000);
 
 var questions = [
   {
@@ -53,6 +55,17 @@ var startGame = function () {
   score = 0;
   questionsLeft = [...questions];
   nextQuestion();
+  // myTimer();
+}
+
+function myTimer() {
+  document.getElementById('timer').innerHTML = "Time Remaining:" + " " + sec + " " + "seconds";
+  sec--;
+  if (sec == -1) {
+    clearInterval(time);
+    alert('Out of Time!');
+    return window.location.assign('./highscores.html');
+  }
 }
 // when user selects CORRECT answer, let them know it is correct
 // add 10 points

@@ -9,28 +9,30 @@
   <link rel="stylesheet" href="./assets/CSS/style.css">
   <link rel="stylesheet" href="./assets/CSS/game.css">
 </head>
-<div class="container-secondary">
-  <div id="end" class="user-info">
-    <div>
-      <h2 id="score">0</h2>
-    </div>
-    <div>
-      <form>
-        <div>
-          <input id="initials" name="initials" type="text" placeholder="Enter Your Initials here">
-        </div>
-        <div>
-          <button class="button" id="save-score" onclick="saveScore(event)" disabled>Save Score</button>
-        </div>
-        <a href="/game.html" class="button">Play Again</a>
-        <a href="./index.html" class="button">Home Page</a>
-      </form>
-    </div>
-  </div>
-</div>
+
 
 <body>
+  <div class="container-secondary">
+    <div id="end" class="user-info">
+      <div>
+        <h2 id="score">0</h2>
+      </div>
+      <div>
+        <form>
+          <div>
+            <input id="initials" name="initials" type="text" placeholder="Enter Your Initials here">
+          </div>
+          <div>
+            <button class="button" id="save-score" onclick="saveScore(event)" disabled>Save Score</button>
+          </div>
+          <a href="/game.html" class="button">Play Again</a>
+          <a href="./index.html" class="button">Home Page</a>
+        </form>
+      </div>
+    </div>
+  </div>
 
+  <script src="./assets/JS/highscores.js"></script>
 </body>
 
 </html>
