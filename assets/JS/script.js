@@ -1,6 +1,6 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('option'));
-
+var scoreText = document.getElementById('score');
 var currentQuestion = {};
 var score = 0;
 var questionCount = 0;
@@ -44,7 +44,7 @@ var questions = [
 ];
 
 var maxQuestions = 4;
-var correctBonus = 10;
+var correctAns = 10;
 
 // user starts game, call timer function
 // set user score to 0
@@ -96,12 +96,18 @@ choices.forEach(choice => {
     var changeValue = 'incorrect';
     if (userAnswer == currentQuestion.answer) {
       changeValue = 'correct';
+      addPoints(correctAns);
     }
+    userSelect.parentElement.classList.add(changeValue);
 
-    console.log(changeValue);
     nextQuestion()
   });
 });
+
+addPoints = num => {
+  score += num;
+  scoreText.innerText = "Score:" + " " + score;
+}
 
 startGame();
 
