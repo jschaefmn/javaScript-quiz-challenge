@@ -61,10 +61,11 @@ var startGame = function () {
 function myTimer() {
   document.getElementById('timer').innerHTML = "Time Remaining:" + " " + sec + " " + "seconds";
   sec--;
+  // when user runs out of time => prompt alert "You are out of time" and bring them to a scores page to enter their name
   if (sec == -1) {
     clearInterval(time);
     alert('Out of Time!');
-    return window.location.assign('./highscores.html');
+    return window.location.assign('./endgame.html');
   }
 }
 // when user selects CORRECT answer, let them know it is correct
@@ -74,7 +75,7 @@ function myTimer() {
 var nextQuestion = function () {
   if (questionsLeft.length === 0 || questionCount >= maxQuestions) {
     localStorage.setItem("lastScore", score);
-    return window.location.assign('./highscores.html');
+    return window.location.assign('./endgame.html');
   }
   questionCount++;
   var questionLocation = Math.floor(Math.random() * questionsLeft.length)
@@ -93,12 +94,16 @@ choices.forEach(choice => {
   choice.addEventListener('click', (e) => {
     var userSelect = e.target;
     var userAnswer = userSelect.dataset['number'];
-
+    // if user answers question correctly, add 10 points. else subtract 15 seconds
     var changeValue = 'incorrect';
     if (userAnswer == currentQuestion.answer) {
       changeValue = 'correct';
       addPoints(correctAns);
     }
+    else {
+      sec -= 15;
+    }
+    console.log(changeValue);
     userSelect.parentElement.classList.add(changeValue);
 
     nextQuestion()
@@ -112,9 +117,3 @@ addPoints = num => {
 
 startGame();
 
-// when user selects INCORRECT answer, let them know it is incorrect
-// subtract 10 points
-// store score
-// display next question
-
-// when user runs out of time => prompt alert "You are out of time" and bring them to a scores page to enter their name

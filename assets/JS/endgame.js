@@ -12,11 +12,10 @@ initials.addEventListener('keyup', () => {
 });
 
 saveHighScore = (e) => {
-  console.log("save button clicked");
   e.preventDefault();
   var score = {
     score: lastScore,
-    name: initials.value
+    name: initials.value,
   };
   // add individual high scores, with a max of 5 stored high scores and cut out any after that that don't make the cut
   //sort high scores from highest to lowest

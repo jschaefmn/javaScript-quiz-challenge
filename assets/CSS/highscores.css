@@ -1,0 +1,20 @@
+:root {
+  --primary-color: #FFbe0b;
+  --secondary-color: #fb5607;
+  --tertiary-color: #ff006e;
+  --quintary-color: #8338ec;
+}
+
+ol {
+  background-color: var(--quintary-color);
+  border: .35rem solid black;
+  margin-bottom: 3rem;
+  width: 18vw;
+  text-align: center;
+}
+
+.score-item {
+  font-size: 3rem;
+  text-decoration: underline;
+  padding: .25rem 0;
+}
